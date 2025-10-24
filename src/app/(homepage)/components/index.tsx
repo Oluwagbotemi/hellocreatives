@@ -3,6 +3,7 @@
 import { motion, useAnimation } from 'framer-motion'
 import Image from 'next/image'
 import React, { useEffect, useRef } from 'react'
+import PlatformSelect from './platform-select'
 
 const Homepage = () => {
     const controls = useAnimation()
@@ -123,6 +124,7 @@ const Homepage = () => {
                     we’re here to help creatives grow through stories, resources and real conversations.
                 </p>
             </div>
+            <PlatformSelect />
         </div>
     )
 }
