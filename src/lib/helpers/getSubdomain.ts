@@ -31,26 +31,33 @@ export const toggleDomain = (
 ) => {
     if (typeof window === 'undefined') return;
 
-    const host = window.location.hostname;
+    const { protocol, hostname, port } = window.location;
     const baseDomain = process.env.NEXT_PUBLIC_DOMAIN;
 
     if (!baseDomain) {
-        console.error(' NEXT_PUBLIC_DOMAIN is not defined.');
+        console.error('NEXT_PUBLIC_DOMAIN is not defined.');
         return;
     }
 
-    const isCurrent = host.startsWith(`${subdomain}.`);
+    const isLocalhost = baseDomain.includes('localhost');
+    const currentIsSubdomain = hostname.startsWith(`${subdomain}.`);
+    let newHost: string;
 
-    const newHost = isCurrent
-        ? baseDomain
-        : `${subdomain}.${baseDomain}`;
+    if (currentIsSubdomain) {
+        newHost = isLocalhost ? baseDomain : baseDomain;
+    } else {
+        newHost = isLocalhost
+            ? `${subdomain}.${baseDomain}`
+            : `${subdomain}.${baseDomain}`;
+    }
+    const portPart =
+        isLocalhost && !newHost.includes(':') && port ? `:${port}` : '';
 
-    const newUrl = `${window.location.protocol}//${newHost}/`;
+    const url = `${protocol}//${newHost}${portPart}/`;
 
     if (openNewTab) {
-        window.open(newUrl, '_blank', 'noopener,noreferrer');
+        window.open(url, '_blank', 'noopener,noreferrer');
     } else {
-        window.location.href = newUrl;
+        window.location.assign(url);
     }
 };
-

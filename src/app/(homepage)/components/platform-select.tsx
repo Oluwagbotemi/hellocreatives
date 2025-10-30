@@ -54,7 +54,8 @@ const PLATFORMITEMS = [
 
 const PlatformSelect = () => {
     return (
-        <div className='mt-[20px] grid grid-cols-2 lg:grid-cols-4 gap-x-[7px] gap-y-[24px] w-full max-w-[760px] justify-center py-5 px-5'>
+        <div className="mt-[20px] grid grid-cols-2 lg:grid-cols-4 gap-x-[7px] gap-y-[24px] w-full max-w-[760px] mx-auto justify-items-center py-5 lg:px-5"
+>
             {PLATFORMITEMS.map((item, index) => (
                 <PlatformSelectTab key={index} position={index + 1} {...item} />
             ))}
