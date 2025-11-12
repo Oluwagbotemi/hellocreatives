@@ -8,7 +8,7 @@ const Home = async () => {
   const host = (await headers()).get('host') || '';
   const subdomain = getSubdomain(host);
   return (
-    <Wrapper className="min-h-[100vh]">
+    <Wrapper>
       {subdomain === 'blog' ? <BlogList /> : <Homepage />}
     </Wrapper>
   )

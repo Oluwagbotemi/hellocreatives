@@ -79,7 +79,7 @@ const Homepage = () => {
     }, [controls])
 
     return (
-        <div className="flex flex-col items-center overflow-hidden">
+        <div className="flex flex-col items-center overflow-hidden min-h-[100vh]">
             <span className="mt-[52px] bg-[#FAFAFA] rounded-[4px] flex items-center justify-between px-[18px] py-[12px]">
                 <Image src="/images/logo.svg" alt="hellocreatives logo" height={21} width={197} />
             </span>
