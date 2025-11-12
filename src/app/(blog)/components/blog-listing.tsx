@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import BlogCard from './blog-card'
+import { bloglist } from '@/constant/blog'
 
 const BlogListing = () => {
     return (
@@ -19,8 +20,14 @@ const BlogListing = () => {
                 </span>
             </div>
             <div className='mt-[60px] grid grid-cols-1 lg:grid-cols-2 gap-[20px] mx-auto justify-items-center'>
-                <BlogCard />
-                <BlogCard />
+                {
+                    bloglist.map((blog) => (
+                        <BlogCard
+                            key={blog.id}
+                            {...blog}
+                        />
+                    ))
+                }
             </div>
         </div>
     )

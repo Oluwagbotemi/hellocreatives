@@ -19,8 +19,14 @@ const HeroSection = () => {
                     and shared experiences from creatives like you — all
                     centered around growth, clarity, and purpose.
                 </p>
-                <button className='mt-[24px] font-display rounded-full w-[155px] h-[43px] bg-black text-white font-semibold'>
+                <button className='mt-[24px] font-display rounded-full px-[20px] py-[12px] bg-black text-white font-semibold flex items-center gap-[10px]'>
                     Write for us
+                    <Image
+                        src='/icons/arrow-up-small-big.svg'
+                        alt='arrow-up'
+                        height={18}
+                        width={18}
+                    />
                 </button>
             </div>
             <Image
