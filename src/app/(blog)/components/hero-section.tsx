@@ -1,7 +1,10 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
+import JoinUsModal from './join-us-modal'
 
 const HeroSection = () => {
+    const [open, setOpen] = useState(false)
     return (
         <div className='mt-[48px] flex justify-between'>
             <div className='w-full max-w-[477px]'>
@@ -19,7 +22,10 @@ const HeroSection = () => {
                     and shared experiences from creatives like you — all
                     centered around growth, clarity, and purpose.
                 </p>
-                <button className='mt-[24px] font-display rounded-full px-[20px] py-[12px] bg-black text-white font-semibold flex items-center gap-[10px]'>
+                <button
+                    className='mt-[24px] font-display rounded-full px-[20px] py-[12px] bg-black text-white font-semibold flex items-center jusify-center gap-[10px] cursor-pointer'
+                    onClick={() => setOpen(true)}
+                >
                     Write for us
                     <Image
                         src='/icons/arrow-up-small-big.svg'
@@ -28,6 +34,7 @@ const HeroSection = () => {
                         width={18}
                     />
                 </button>
+                <JoinUsModal open={open} setOpen={setOpen} />
             </div>
             <Image
                 className='hidden lg:block'

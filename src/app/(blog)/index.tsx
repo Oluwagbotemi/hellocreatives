@@ -1,5 +1,4 @@
 'use client'
-import Wrapper from '@/components/wrapper'
 import { toggleDomain } from '@/lib/helpers/getSubdomain'
 import Image from 'next/image'
 import React from 'react'
