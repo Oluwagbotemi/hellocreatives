@@ -45,12 +45,15 @@ const BigBlogPostCard = (
                             <p className='mt-[4px] text-[14px] text-[#6D7786]'>{authorRole}</p>
                         </div>
                     </div>
-                    <h1 className='text-[36px] font-semibold mt-[32px]'>
+                    <h1 className='text-[24px] md:text-[36px] font-semibold mt-[32px]'>
                         {title}
                     </h1>
                 </div>
                 <div className='pt-[32px] font-medium lg:text-[20px] leading-[35px] tracking-[2%] '>
-                    <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(body) }} />
+                    <div
+                     dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(body) }} 
+                     className='blog-content'
+                     />
                 </div>
             </div>
         </div>

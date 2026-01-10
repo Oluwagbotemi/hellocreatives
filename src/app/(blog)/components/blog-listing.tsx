@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import BlogCard from './blog-card'
 import { bloglist } from '@/constant/blog'
+import BlogList from '..'
 
 const BlogListing = () => {
     return (
