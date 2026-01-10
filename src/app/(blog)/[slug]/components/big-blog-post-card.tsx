@@ -40,7 +40,7 @@ const BigBlogPostCard = (
                                 className='object-cover'
                             />
                         </div>
-                        <div>
+                        <div className='leading-[15px]'>
                             <p className='text-[14px] font-semibold'>{author}</p>
                             <p className='mt-[4px] text-[14px] text-[#6D7786]'>{authorRole}</p>
                         </div>
