@@ -103,6 +103,13 @@
   }
 }
 
+@media (max-width: 768px){
+  .blog-content h2 {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0%;
+  }
+}
 @media (max-width: 768px) {
   .blog-content h3 {
     font-size: 18px;
