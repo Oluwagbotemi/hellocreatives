@@ -5,6 +5,7 @@ export const blog1 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_1_01.webp",
     title: "Stay In Your Process",
     body: `
     <div style="max-width: 700px; margin: 3rem auto; text-align: center;">

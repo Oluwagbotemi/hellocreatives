@@ -5,6 +5,7 @@ export const blog11 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_11.webp",
     title: "Exporting Your Creative Talent Beyond Borders",
     body: `
     

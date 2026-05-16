@@ -5,6 +5,7 @@ export const blog4 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_4.webp",
     title: "2025 Is Here But Only For 365 Days 😎",
     body: `
 

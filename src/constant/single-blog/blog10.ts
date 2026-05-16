@@ -5,6 +5,7 @@ export const blog10 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_10.webp",
     title: "Starting Unequal, Still Moving Forward",
     body: `
     

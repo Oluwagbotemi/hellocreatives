@@ -33,8 +33,9 @@ const goodly = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: "Hello Creatives",
-  description: "",
+  description: "Creative resources, stories, and inspiration from Hello Creatives.",
 };
 
 export default function RootLayout({

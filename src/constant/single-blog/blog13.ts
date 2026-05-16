@@ -5,6 +5,7 @@ export const blog13 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/blog-post-image.svg",
     title: "A Balanced and Whole Creative (Finding Your Coordinates - Part 2)",
     body: `
     

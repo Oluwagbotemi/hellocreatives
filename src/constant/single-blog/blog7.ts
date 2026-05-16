@@ -5,6 +5,7 @@ export const blog7 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_7.webp",
     title: "Curiosity Is The New Curriculum",
     body: `
     <div style="max-width: 700px; margin: 3rem auto; text-align: center;">

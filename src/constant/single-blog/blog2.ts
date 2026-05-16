@@ -5,6 +5,7 @@ export const blog2 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_2.webp",
     title: "Gratitude Journaling",
     body: `
     

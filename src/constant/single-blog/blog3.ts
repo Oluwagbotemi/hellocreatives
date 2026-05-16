@@ -5,6 +5,7 @@ export const blog3 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_3.webp",
     title: "Skills and Impact: A Fresh Perspective On Career Growth",
     body: `
     
