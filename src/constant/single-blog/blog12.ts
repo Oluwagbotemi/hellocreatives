@@ -5,7 +5,7 @@ export const blog12 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
-    ogImage: "/images/Img_12a.webp",
+    ogImage: "/images/Img_12.png",
     title: "A Balanced and Whole Creative (The Meaning - Part 1)",
     body: `
     
