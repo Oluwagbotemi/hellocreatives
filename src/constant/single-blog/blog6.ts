@@ -5,6 +5,7 @@ export const blog6 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_5.webp",
     title: "Let's reflect together - a personal note from Jeremiah",
     body: `
     <div style="max-width: 700px; margin: 3rem auto; text-align: center;">

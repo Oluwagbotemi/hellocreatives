@@ -5,6 +5,7 @@ export const blog8 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img1.webp",
     title: "You need more desire, not more discipline",
     body: `
     <p>

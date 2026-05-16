@@ -5,6 +5,7 @@ export const blog9 = {
     author: "Jeremiah Folorunso",
     authorRole: "Product Designer",
     authorImage: "/images/author-image.jpg",
+    ogImage: "/images/Img_9.webp",
     title: "The Illusion of Next",
     body: `
     
