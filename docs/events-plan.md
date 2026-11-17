@@ -13,7 +13,9 @@ Figma file: https://www.figma.com/design/dAo84w7P6v7bQz9RnEQ9qg/Untitled (Page 2
 - **Call link and platform** are set when the event is created. The platform (Google Meet / Microsoft Teams) shows its logo automatically. The call link is never in the public page; it's only shown and emailed after registration.
 - **Registrations** are stored in Sanity, linked to their event.
 - **Share link / QR code** lands on the events page with that event's registration form open.
-- **Email service:** recommended Resend (pending confirmation).
+- **Email service:** Resend.
+
+**Status:** built. See `docs/events-setup.md` for the account setup steps.
 
 ## Designs
 - Upcoming list, desktop: `93:3905`

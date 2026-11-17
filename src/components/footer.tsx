@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Wrapper from './wrapper'
 import Image from 'next/image'
 import emailjs from '@emailjs/browser'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
   const [email, setEmail] = useState('')
@@ -33,10 +34,15 @@ const Footer = () => {
     }
   }
 
+  const pathname = usePathname()
+
+  // Shown on the blog and events sections (subdomains, or their paths on preview links).
   useEffect(() => {
     const host = window.location.hostname
-    setShowFooter(host.startsWith('blog.'))
-  }, [])
+    const onSectionHost = host.startsWith('blog.') || host.startsWith('events.')
+    const onSectionPath = pathname === '/newsletter' || pathname === '/events'
+    setShowFooter(!pathname.startsWith('/studio') && (onSectionHost || onSectionPath))
+  }, [pathname])
 
   if (!showFooter) return null
   return (

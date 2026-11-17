@@ -1,29 +1,18 @@
-export const getSubdomain = (
-    host: string
-): 'blog' | 'podcast' | 'merches' | 'sponsorships' | undefined => {
-    if (!host) return undefined;
+const SUBDOMAINS = ['blog', 'events', 'podcast', 'merches', 'sponsorships'] as const
+export type Subdomain = (typeof SUBDOMAINS)[number]
 
-    const parts = host.split('.');
-    const sub = parts[0];
+export const getSubdomain = (host: string): Subdomain | undefined => {
+    if (!host) return undefined
+    const sub = host.split('.')[0]
+    return (SUBDOMAINS as readonly string[]).includes(sub) ? (sub as Subdomain) : undefined
+}
 
-    // Handle localhost for local testing
-    if (host.includes('localhost')) {
-        if (sub === 'blog') return 'blog';
-        if (sub === 'podcast') return 'podcast';
-        if (sub === 'merches') return 'merches';
-        if (sub === 'sponsorships') return 'sponsorships';
-        return undefined;
-    }
-
-    // Handle production/staging subdomains
-    if (sub === 'blog') return 'blog';
-    if (sub === 'podcast') return 'podcast';
-    if (sub === 'merches') return 'merches';
-    if (sub === 'sponsorships') return 'sponsorships';
-
-    return undefined;
-};
-
+// Where each section lives when subdomains aren't available
+// (Vercel preview links, or local development without NEXT_PUBLIC_DOMAIN).
+const FALLBACK_PATHS: Partial<Record<Subdomain, string>> = {
+    blog: '/newsletter',
+    events: '/events',
+}
 
 export const toggleDomain = (
     subdomain: string,
@@ -31,18 +20,22 @@ export const toggleDomain = (
 ) => {
     if (typeof window === 'undefined') return;
 
-    const { protocol, hostname, port } = window.location;
+    const { protocol, hostname, port, pathname, origin } = window.location;
     const baseDomain = process.env.NEXT_PUBLIC_DOMAIN;
 
-    // Vercel deployment URLs cannot serve arbitrary blog.* subdomains.
-    // Keep previews on their own origin, even when production env vars exist.
-    if (subdomain === 'blog' && (hostname.endsWith('.vercel.app') || !baseDomain)) {
-        const url = new URL(window.location.pathname === '/newsletter' ? '/' : '/newsletter', window.location.origin).href;
+    const go = (url: string) => {
         if (openNewTab) {
             window.open(url, '_blank', 'noopener,noreferrer');
         } else {
             window.location.assign(url);
         }
+    };
+
+    // Vercel deployment URLs cannot serve arbitrary subdomains.
+    // Keep previews on their own origin, even when production env vars exist.
+    const fallbackPath = FALLBACK_PATHS[subdomain as Subdomain];
+    if (fallbackPath && (hostname.endsWith('.vercel.app') || !baseDomain)) {
+        go(new URL(pathname === fallbackPath ? '/' : fallbackPath, origin).href);
         return;
     }
 
@@ -50,23 +43,9 @@ export const toggleDomain = (
 
     const isLocalhost = baseDomain.includes('localhost');
     const currentIsSubdomain = hostname.startsWith(`${subdomain}.`);
-    let newHost: string;
-
-    if (currentIsSubdomain) {
-        newHost = isLocalhost ? baseDomain : baseDomain;
-    } else {
-        newHost = isLocalhost
-            ? `${subdomain}.${baseDomain}`
-            : `${subdomain}.${baseDomain}`;
-    }
+    const newHost = currentIsSubdomain ? baseDomain : `${subdomain}.${baseDomain}`;
     const portPart =
         isLocalhost && !newHost.includes(':') && port ? `:${port}` : '';
 
-    const url = `${protocol}//${newHost}${portPart}/`;
-
-    if (openNewTab) {
-        window.open(url, '_blank', 'noopener,noreferrer');
-    } else {
-        window.location.assign(url);
-    }
+    go(`${protocol}//${newHost}${portPart}/`);
 };
