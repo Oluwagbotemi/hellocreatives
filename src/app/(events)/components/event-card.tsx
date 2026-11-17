@@ -21,7 +21,7 @@ const EventCard = ({ event, onRegister, onShared }: EventCardProps) => {
                 <button
                     type='button'
                     onClick={() => onRegister(event)}
-                    className='flex h-[56px] flex-1 cursor-pointer items-center justify-center gap-[10px] rounded-[52px] bg-black px-[20px] font-display text-[16px] font-semibold text-white transition-opacity hover:opacity-85'
+                    className='flex h-[56px] shrink-0 cursor-pointer items-center justify-center gap-[10px] rounded-[52px] bg-black md:flex-1 px-[20px] font-display text-[16px] font-semibold text-white transition-opacity hover:opacity-85'
                 >
                     Click To Register
                 </button>
