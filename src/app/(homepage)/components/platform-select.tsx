@@ -2,7 +2,6 @@
 
 import { toggleDomain } from '@/lib/helpers/getSubdomain'
 import { motion } from 'framer-motion'
-import { s } from 'framer-motion/client'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -18,15 +17,14 @@ const PLATFORMITEMS = [
         iconWidth: 81.5,
     },
     {
-        platformName: 'Podcast',
-        subdomain: 'podcast',
+        platformName: 'Events',
+        subdomain: 'events',
         iconSrc: '/icons/podcast-icon.svg',
         activeIconSrc: '/icons/active-podcast-icon.svg',
         activeBorderColor: '#1562FB',
         activeBgColor: '#FAFCFF',
         iconHeight: 69.5,
         iconWidth: 39,
-        comingSoon: true,
     },
     {
         platformName: 'Merches',
