@@ -12,6 +12,7 @@ Figma file: https://www.figma.com/design/dAo84w7P6v7bQz9RnEQ9qg/Untitled (Page 2
 - **Share image** includes the web link and a QR code. On phones, the link is also sent as text with the image.
 - **Call link and platform** are set when the event is created. The platform (Google Meet / Microsoft Teams) shows its logo automatically. The call link is never in the public page; it's only shown and emailed after registration.
 - **Registrations** are stored in Sanity, linked to their event.
+- **Share link / QR code** lands on the events page with that event's registration form open.
 - **Email service:** recommended Resend (pending confirmation).
 
 ## Designs
@@ -25,7 +26,7 @@ Figma file: https://www.figma.com/design/dAo84w7P6v7bQz9RnEQ9qg/Untitled (Page 2
 ## Event fields in Sanity
 - Type: Workshop / Event
 - Title, description, host name
-- Card image or logo (open question: is it the same for every event?)
+- Card graphic: a different image per event, uploaded in Sanity. Samples are in Figma (`96:5729`–`96:5732`: green, purple, orange, blue). Upload guide: transparent PNG/WebP, about 2.2:1 ratio (e.g. 966×438).
 - Date and time
 - Location type:
   - **Virtual:** platform (Google Meet / Microsoft Teams) and call link (private)
@@ -39,7 +40,5 @@ Figma file: https://www.figma.com/design/dAo84w7P6v7bQz9RnEQ9qg/Untitled (Page 2
 - Plan: build the image on the server with Next.js `ImageResponse`, then share it with the browser's Web Share API, falling back to a download.
 
 ## Open questions
-- Where the share link and QR code should land (suggested: the events page with that event's registration form open)
-- Whether the green card image is the same for every event or uploaded per event
 - Past Sessions on mobile: assumed to stack like the Upcoming cards
 - Setup the owner must do: create the Sanity project and the Resend account, verify the domain for email, and add the `events.` subdomain in Vercel
