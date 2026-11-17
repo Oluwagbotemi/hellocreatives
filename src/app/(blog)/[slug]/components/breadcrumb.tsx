@@ -9,7 +9,11 @@ const Breadcrumb = () => {
         <div className='flex items-center gap-2'>
             <button
                 className='size-[20px] bg-white border border-[#E1E7EC] rounded-[8px] flex items-center justify-center cursor-pointer'
-                onClick={() => router.push('/')}
+                onClick={() => router.push(
+                    window.location.hostname.endsWith('.vercel.app') || !process.env.NEXT_PUBLIC_DOMAIN
+                        ? '/newsletter'
+                        : '/'
+                )}
             >
                 <Image
                     src={'/icons/arrow-sm-left.svg'}

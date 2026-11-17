@@ -34,10 +34,19 @@ export const toggleDomain = (
     const { protocol, hostname, port } = window.location;
     const baseDomain = process.env.NEXT_PUBLIC_DOMAIN;
 
-    if (!baseDomain) {
-        console.error('NEXT_PUBLIC_DOMAIN is not defined.');
+    // Vercel deployment URLs cannot serve arbitrary blog.* subdomains.
+    // Keep previews on their own origin, even when production env vars exist.
+    if (subdomain === 'blog' && (hostname.endsWith('.vercel.app') || !baseDomain)) {
+        const url = new URL(window.location.pathname === '/newsletter' ? '/' : '/newsletter', window.location.origin).href;
+        if (openNewTab) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+        } else {
+            window.location.assign(url);
+        }
         return;
     }
+
+    if (!baseDomain) return;
 
     const isLocalhost = baseDomain.includes('localhost');
     const currentIsSubdomain = hostname.startsWith(`${subdomain}.`);
