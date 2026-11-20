@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Wrapper from '@/components/wrapper'
+import Footer from '@/components/footer'
 
 import Breadcrumb from './components/breadcrumb'
 import BigBlogPostCard from './components/big-blog-post-card'
 import { bloglist } from '@/constant/blog';
 import { notFound } from 'next/navigation';
+import { getPostPreviewImage, toIsoDate } from '@/lib/blog';
 
 type SingleBlogPageProps = {
     params: Promise<{ slug: string }>;
@@ -25,6 +27,7 @@ export async function generateMetadata(
     const title = `${blogObject.title} | Hello Creatives`
     const description = blogObject.blogBrief || blogObject.summary
     const postPath = `/${blogObject.slug}`
+    const previewImage = getPostPreviewImage(blogObject)
 
     return {
         title,
@@ -37,11 +40,11 @@ export async function generateMetadata(
             description,
             url: postPath,
             type: 'article',
-            publishedTime: blogObject.date,
+            publishedTime: toIsoDate(blogObject.date),
             authors: [blogObject.author],
             images: [
                 {
-                    url: blogObject.ogImage,
+                    url: previewImage,
                     width: 1200,
                     height: 630,
                     alt: blogObject.title,
@@ -52,7 +55,7 @@ export async function generateMetadata(
             card: 'summary_large_image',
             title,
             description,
-            images: [blogObject.ogImage],
+            images: [previewImage],
         },
     }
 }
@@ -72,12 +75,15 @@ const SingleBlogPage = async (
     if (!blogObject) notFound()
 
     return (
-        <div className='bg-[#F7F8FA] min-h-[calc(100vh-558px)] lg:min-h-[calc(100vh-458px)]'>
-            <Wrapper className='py-[84px] lg:py-[42px]'>
-                <Breadcrumb />
-                {blogObject ? <BigBlogPostCard {...blogObject} /> : <div className=' text-center font-bold text-[32px]'>Blog post not found</div>}
-            </Wrapper>
-        </div>
+        <>
+            <div className='bg-[#F7F8FA] min-h-[calc(100vh-558px)] lg:min-h-[calc(100vh-458px)]'>
+                <Wrapper className='py-[84px] lg:py-[42px]'>
+                    <Breadcrumb />
+                    {blogObject ? <BigBlogPostCard {...blogObject} /> : <div className=' text-center font-bold text-[32px]'>Blog post not found</div>}
+                </Wrapper>
+            </div>
+            <Footer />
+        </>
     )
 }
 

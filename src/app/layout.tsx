@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Geist, Geist_Mono, Inter as InterFont } from "next/font/google";
+import { Inter as InterFont } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const inter = InterFont({
   variable: "--font-inter",
@@ -32,8 +21,16 @@ const goodly = localFont({
   display: "swap",
 });
 
+// Used to build full links for link previews (og:image etc.).
+// Set NEXT_PUBLIC_SITE_URL in Vercel; otherwise fall back to Vercel's production domain.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title: "Hello Creatives",
   description: "Creative resources, stories, and inspiration from Hello Creatives.",
 };
@@ -44,11 +41,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${goodly.variable} antialiased`}
+        className={`${inter.variable} ${goodly.variable} antialiased`}
       >
         <div className="flex flex-col min-h-screen justify-between">
           {children}
-          <Footer />
         </div>
       </body>
     </html>

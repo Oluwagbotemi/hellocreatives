@@ -1,4 +1,5 @@
 import Wrapper from '@/components/wrapper'
+import Footer from '@/components/footer'
 import EventsPage, { getEventsMetadata } from '../(events)'
 
 // The events page at /events. In production it's served at events.hellocreatives.io
@@ -11,8 +12,11 @@ export const generateMetadata = async ({ searchParams }: Props) =>
 
 export default async function EventsRoute({ searchParams }: Props) {
     return (
-        <Wrapper>
-            <EventsPage eventSlug={(await searchParams).event} />
-        </Wrapper>
+        <>
+            <Wrapper>
+                <EventsPage eventSlug={(await searchParams).event} />
+            </Wrapper>
+            <Footer />
+        </>
     )
 }
