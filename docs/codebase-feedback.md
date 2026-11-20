@@ -4,6 +4,8 @@ Saved review of the hellocreatives codebase, to pick up later. `npm run build` p
 
 **Done (quick fixes, Nov 2026):** items 1–3, the leftovers, the `jusify`/`arroe` typos and the reading-time icon. Posts with an SVG preview image now get a generated preview (`/api/blog/<slug>/preview-image`). The footer is rendered by the pages that show it (no late pop-in) and now also appears on blog posts on the main domain.
 
+**Done (forms, Nov 2026):** item 5. Both forms use `<form>` (Enter submits), check email format, show errors next to the field; the pitch has a live word counter and a 1,000-word limit, and shows a "Pitch received" confirmation.
+
 ## Worth fixing soon
 1. **Link previews**
    - Post dates are written as `"08 July, 2024"`, but Open Graph wants `2024-07-08` (see `src/app/(blog)/[slug]/page.tsx`).
