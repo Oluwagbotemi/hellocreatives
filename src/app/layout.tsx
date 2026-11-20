@@ -21,8 +21,16 @@ const goodly = localFont({
   display: "swap",
 });
 
+// Used to build full links for link previews (og:image etc.).
+// Set NEXT_PUBLIC_SITE_URL in Vercel; otherwise fall back to Vercel's production domain.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title: "Hello Creatives",
   description: "Creative resources, stories, and inspiration from Hello Creatives.",
 };
