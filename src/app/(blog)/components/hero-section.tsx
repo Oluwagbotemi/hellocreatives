@@ -23,7 +23,7 @@ const HeroSection = () => {
                     centered around growth, clarity, and purpose.
                 </p>
                 <button
-                    className='mt-[24px] font-display rounded-full px-[20px] py-[12px] bg-black text-white font-semibold flex items-center jusify-center gap-[10px] cursor-pointer'
+                    className='mt-[24px] font-display rounded-full px-[20px] py-[12px] bg-black text-white font-semibold flex items-center justify-center gap-[10px] cursor-pointer'
                     onClick={() => setOpen(true)}
                 >
                     Write for us

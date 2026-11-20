@@ -2,6 +2,8 @@
 
 Saved review of the hellocreatives codebase, to pick up later. `npm run build` passes and all 13 posts are generated as static pages.
 
+**Done (quick fixes, Nov 2026):** items 1–3, the leftovers, the `jusify`/`arroe` typos and the reading-time icon. Posts with an SVG preview image now get a generated preview (`/api/blog/<slug>/preview-image`). The footer is rendered by the pages that show it (no late pop-in) and now also appears on blog posts on the main domain.
+
 ## Worth fixing soon
 1. **Link previews**
    - Post dates are written as `"08 July, 2024"`, but Open Graph wants `2024-07-08` (see `src/app/(blog)/[slug]/page.tsx`).

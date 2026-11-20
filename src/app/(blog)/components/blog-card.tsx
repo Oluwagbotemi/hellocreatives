@@ -43,7 +43,7 @@ const BlogCard = ({ author, authorRole, readingTime, date, authorImage, slug, ti
                         Read
                         <Image
                             src={'/icons/arrow-up-right.svg'}
-                            alt='arroe right up'
+                            alt=''
                             height={18}
                             width={18}
                         />
@@ -64,8 +64,8 @@ const BlogCard = ({ author, authorRole, readingTime, date, authorImage, slug, ti
                     </div>
                     <div className='flex items-center gap-1'>
                         <Image
-                            src={'/icons/gray-calendar.svg'}
-                            alt='calendar icon'
+                            src={'/icons/gray-clock.svg'}
+                            alt=''
                             height={18}
                             width={18}
                         />

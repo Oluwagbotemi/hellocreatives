@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
       "./public/icons/events/**/*",
       "./public/images/events/**/*",
     ],
+    "/api/blog/[slug]/preview-image": [
+      "./src/assets/fonts/**/*",
+      "./public/images/white-logo.svg",
+      "./public/images/footer-image.svg",
+    ],
   },
 };
 

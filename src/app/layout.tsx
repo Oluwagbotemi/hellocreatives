@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Geist, Geist_Mono, Inter as InterFont } from "next/font/google";
+import { Inter as InterFont } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const inter = InterFont({
   variable: "--font-inter",
@@ -44,11 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${goodly.variable} antialiased`}
+        className={`${inter.variable} ${goodly.variable} antialiased`}
       >
         <div className="flex flex-col min-h-screen justify-between">
           {children}
-          <Footer />
         </div>
       </body>
     </html>
